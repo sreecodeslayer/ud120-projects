@@ -14,7 +14,30 @@
     enron_data["SKILLING JEFFREY K"]["bonus"] = 5600000
     
 """
+"""
+{'salary': 'NaN',
+'to_messages': 'NaN',
+'deferral_payments': 564348,
+'total_payments': 564348,
+'exercised_stock_options':886231,
+'bonus': 'NaN',
+'restricted_stock': 208809,
+'shared_receipt_with_poi': 'NaN',
+'restricted_stock_deferred': 'NaN',
+'total_stock_value': 1095040,
+'expenses': 'NaN',
+'loan_advances': 'NaN',
+'from_messages': 'NaN',
+'other': 'NaN',
+'from_this_person_to_poi': 'NaN',
+'poi': False,
+'director_fees': 'NaN',
+'deferred_income': 'NaN',
+'long_term_incentive': 'NaN',
+'email_address': 'james.prentice@enron.com',
+'from_poi_to_this_person': 'NaN'}
 
+"""
 import pickle
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
@@ -31,5 +54,9 @@ print 'No. of point of interest: ',count
 
 # print 'Total value of the stock belonging to James Prentice:'
 for key,value in enron_data.iteritems():
-    if key.startswith('PRENTICE'):
+    if key.startswith('PRENTICE JAMES'):
         print 'Total value of the stock belonging to',key,' : ',value['total_stock_value']
+
+for key,value in enron_data.iteritems():
+    if key.startswith('COLWELL WESLEY'):
+        print 'Total no. of the mails from',key,'to POI :',value['from_this_person_to_poi']
