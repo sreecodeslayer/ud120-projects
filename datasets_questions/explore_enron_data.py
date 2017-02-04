@@ -60,3 +60,7 @@ for key,value in enron_data.iteritems():
 for key,value in enron_data.iteritems():
     if key.startswith('COLWELL WESLEY'):
         print 'Total no. of the mails from',key,'to POI :',value['from_this_person_to_poi']
+
+for key,value in enron_data.iteritems():
+    if key.startswith('Skilling Jeffrey K'.upper()):
+        print 'Value of stock options exercised by',key,':',value['exercised_stock_options']
