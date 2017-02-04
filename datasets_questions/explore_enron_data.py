@@ -25,7 +25,11 @@ print 'Total no. of features for a person: ',len(enron_data.iteritems().next()[1
 
 count = 0
 for key,value in enron_data.iteritems():
-	if value['poi'] is True:
-		count+=1
+    if value['poi'] is True:
+        count+=1
 print 'No. of point of interest: ',count
 
+# print 'Total value of the stock belonging to James Prentice:'
+for key,value in enron_data.iteritems():
+    if key.startswith('PRENTICE'):
+        print 'Total value of the stock belonging to',key,' : ',value['total_stock_value']
