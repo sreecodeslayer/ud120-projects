@@ -39,6 +39,7 @@
 
 """
 import pickle
+from operator import itemgetter
 
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
@@ -64,3 +65,11 @@ for key,value in enron_data.iteritems():
 for key,value in enron_data.iteritems():
     if key.startswith('Skilling Jeffrey K'.upper()):
         print 'Value of stock options exercised by',key,':',value['exercised_stock_options']
+
+payments = []
+for key,value in enron_data.iteritems():
+    if value['total_payments'] != "NaN":
+        payments.append({'name':key,'payment':value['total_payments']})
+newlist = sorted(payments, key=lambda k: k['payment'])
+print "Guy who came away with most of the money :",newlist[len(newlist)-2]
+
