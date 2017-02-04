@@ -73,3 +73,13 @@ for key,value in enron_data.iteritems():
 newlist = sorted(payments, key=lambda k: k['payment'])
 print "Guy who came away with most of the money :",newlist[len(newlist)-2]
 
+
+q_salary_count=0
+valid_email_count=0
+for key,value in enron_data.iteritems():
+    if value['salary']!='NaN':
+        q_salary_count+=1
+    if value['email_address']!='NaN':
+        valid_email_count+=1
+print "Total people with a quantifiable salary:",q_salary_count
+print "Total people with atleast one email:",valid_email_count
