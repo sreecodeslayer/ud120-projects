@@ -20,3 +20,12 @@ import pickle
 enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
 
 
+print 'Total no. of people in enron list: ',len(enron_data)
+print 'Total no. of features for a person: ',len(enron_data.iteritems().next()[1])
+
+count = 0
+for key,value in enron_data.iteritems():
+	if value['poi'] is True:
+		count+=1
+print 'No. of point of interest: ',count
+
