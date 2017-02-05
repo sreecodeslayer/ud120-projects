@@ -83,3 +83,10 @@ for key,value in enron_data.iteritems():
         valid_email_count+=1
 print "Total people with a quantifiable salary:",q_salary_count
 print "Total people with atleast one email:",valid_email_count
+
+pay_nan_count=0
+for key,value in enron_data.iteritems():
+    if value['total_payments']=='NaN':
+        pay_nan_count+=1
+print "Total people with a 'NaN' total payment in dataset:",pay_nan_count
+print "Percentage:",pay_nan_count*100/len(enron_data)
