@@ -90,3 +90,10 @@ for key,value in enron_data.iteritems():
         pay_nan_count+=1
 print "Total people with a 'NaN' total payment in dataset:",pay_nan_count
 print "Percentage:",pay_nan_count*100/len(enron_data)
+
+pay_nan_poi_count=0
+for key,value in enron_data.iteritems():
+    if value['total_payments']=='NaN' and value['poi'] is True:
+        pay_nan_poi_count+=1
+print "Total poi people with a 'NaN' total payment in dataset:",pay_nan_poi_count
+print "Percentage:",pay_nan_poi_count*100/len(enron_data)
